@@ -40,7 +40,6 @@ jobs:
     - name: Run vet & lint
       run: |
         go vet .
-        golint .
 
     # Run testing on the code
     - name: Run testing

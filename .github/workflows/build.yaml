@@ -30,7 +30,11 @@ jobs:
     
     # Install all the dependencies
     - name: Install dependencies
-      run: go get
+      run: |
+      go version
+      go get
+      go get -u golang.org/x/lint/golint
+
         
     # Run build of the application
     - name: Run build
@@ -40,7 +44,7 @@ jobs:
     - name: Run vet & lint
       run: |
         go vet .
-
+        golint .
     # Run testing on the code
     - name: Run testing
       run: go test -v

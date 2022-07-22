@@ -31,10 +31,8 @@ jobs:
     # Install all the dependencies
     - name: Install dependencies
       run: |
-      go version
-      go get
-      go get -u golang.org/x/lint/golint
-
+        go get
+        go get -u golang.org/x/lint/golint
         
     # Run build of the application
     - name: Run build

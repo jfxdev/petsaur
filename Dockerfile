@@ -14,11 +14,11 @@ FROM alpine:3.15.0 AS bin
 
 COPY --from=builder /bin/app /app
 
-COPY scripts/run.sh /run.sh
+COPY scripts/entrypoint.sh /entrypoint.sh
 
-RUN chmod +x /run.sh
+RUN chmod +x /entrypoint.sh
 RUN apk --no-cache add ca-certificates
 
 EXPOSE 8080
 
-ENTRYPOINT ["./run.sh"]
+ENTRYPOINT ["./entrypoint.sh"]

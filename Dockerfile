@@ -1,4 +1,4 @@
-FROM golang:1.18.4-alpine3.15 as builder
+FROM golang:1.18.5-alpine3.16 as builder
 
 WORKDIR /bin
 
@@ -10,7 +10,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 \
    go build -a -ldflags "-s -w" \
   -o app .
 
-FROM alpine:3.15.0 AS bin
+FROM alpine:3.16.2 AS bin
 
 COPY --from=builder /bin/app /app
 

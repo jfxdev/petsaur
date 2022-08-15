@@ -10,7 +10,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 \
    go build -a -ldflags "-s -w" \
   -o app .
 
-FROM alpine:3.15.0 AS bin
+FROM alpine:3.15 AS bin
 
 COPY --from=builder /bin/app /app
 
